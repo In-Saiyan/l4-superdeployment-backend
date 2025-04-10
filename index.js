@@ -9,6 +9,11 @@ const cors = require('cors')
 
 const PORT = process.env.PORT || 8080
 
+app.use(cors({
+    origin : process.env.FRONTEND_URL,
+    credentials : true
+}))
+
 app.get('/',(request,response)=>{
     response.json({
         message : "Server running at " + PORT
